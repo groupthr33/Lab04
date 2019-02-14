@@ -95,6 +95,57 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(-27,20))
 
+
+    def test_mul_like_denoms(self):
+        a = 5
+        b = 5
+        c = 4
+        d = 5
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 = r1 * r2
+        self.assertEqual(r3, Rational(4 / 5))
+
+    def test_mul_diff_denoms(self):
+        a = 3
+        b = 5
+        c = 5
+        d = 4
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 = r1* r2
+        self.assertEqual(r3, Rational(3 / 4))
+
+    def test_multiply_r1_negative(self):
+        a = -5
+        b = 5
+        c = 4
+        d = 5
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 = r1 * r2
+        self.assertEqual(r3, Rational(-4 / 5))
+
+    def test_multiply_r2_negative(self):
+        a = 5
+        b = 5
+        c = -4
+        d = 5
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 = r1*r2
+        self.assertEqual(r3, Rational(-4 / 5))
+
+    def test_multiply_two_negatives(self):
+        a = -3
+        b = 5
+        c = -5
+        d = 4
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 = r1*r2
+        self.assertEqual(r3, Rational(3 / 4))
+
     def test_add_improper_fraction(self):
         a = 14
         b = 5
@@ -108,13 +159,15 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(71,20))
 
+
+
+
     def test_add_not_Rationals(self):
         a = 14
         b = 5
 
         r1 = Rational(a, b)
         r2 = 3
-
         sum = r1 + r2
 
         self.assertRaises(Exception)
@@ -168,8 +221,81 @@ class TestRational(TestCase):
         sum = r1 - r2
 
         self.assertEqual(sum, Rational(3,20))
+    def multiply_improper_fraction(self):
+        a = 9
+        b = 5
+        c = 4
+        d = 5
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 =r1 * r2
+
+        self.assertEqual(r3, Rational(36, 25))
+
+
+    def multiply_not_Rationals(self):
+        a = 13.5
+        b = 7
+        c = 4
+        d = 49.6
+        r1 = Rational(a, b)
+        r2 = 56
+        r3 = r1 * r2
+
+        self.assertRaises(Exception)
+
+    def test_div_like_denoms(self):
+        a = 5
+        b = 5
+        c = 4
+        d = 5
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 = r1/r2
+        self.assertEqual(r3, Rational(5 / 4))
+
+    def test_div_diff_denoms(self):
+        a = 3
+        b = 5
+        c = 5
+        d = 4
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 = r1/r2
+        self.assertEqual(r3, Rational(12 / 25))
+
+    def test_divide_r1_negative(self):
+        a = -5
+        b = 5
+        c = 4
+        d = 5
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 = r1/r2
+        self.assertEqual(r3, Rational(-5 / 4))
+
+    def test_divide_r2_negative(self):
+        a = 5
+        b = 5
+        c = -4
+        d = 5
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 = r1/r2
+        self.assertEqual(r3, Rational(-5 / 4))
+
+    def test_divide_two_negatives(self):
+        a = -3
+        b = 5
+        c = -5
+        d = 4
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+        r3 = r1/r2
+        self.assertEqual(r3, Rational(12 / 25))
 
     def test_sub_improper_fraction(self):
+
         a = 14
         b = 5
         c = 3
@@ -178,9 +304,24 @@ class TestRational(TestCase):
         r1 = Rational(a, b) # 14/5
         r2 = Rational(c, d) # 3/4
 
-        sum = r1 - r2
+        dif = r1 - r2
 
-        self.assertEqual(sum, Rational(41,20))
+        self.assertEqual(dif, Rational(41,20))
+
+
+    def divide_improper_fraction(self):
+
+        a=5
+        b=3
+        c=4
+        d=5
+        r1 = Rational(a, b)
+        r2 = Rational(c, d)
+
+        r3 =r1/r2
+
+        self.assertEqual(r3, Rational(3, 4))
+
 
     def test_sub_not_Rationals(self):
         a = 14
@@ -234,6 +375,7 @@ class TestRational(TestCase):
         self.assertEqual(rationalAsFloat, 1.5)
 
     def test_float_(self):
+
         a = 3
         b = 2
 
@@ -242,3 +384,13 @@ class TestRational(TestCase):
         rationalAsFloat = float(r1)
 
         self.assertEqual(rationalAsFloat, 1.5)
+
+    def divide_not_Rationals(self):
+        a = 3.
+        b = 2
+
+        r1 = Rational(a, b)
+        r3 = r1/4
+
+        self.assertRaises(Exception)
+
