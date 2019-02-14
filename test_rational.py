@@ -4,6 +4,46 @@ from Rational import Rational
 
 class TestRational(TestCase):
 
+    def test_init_zeroDenominator(self):
+        a = 3
+        b = 0
+
+        r1 = Rational(a,b)
+
+        self.assertRaises(Exception)
+
+    def test_init_negDenominator(self):
+        a = 3
+        b = -1
+
+        r1 = Rational(a,b)
+
+        self.assertRaises(Exception)
+
+    def test_init_float(self):
+        a = 1.0
+        b = 3
+
+        r1 = Rational(a, b)
+
+        self.assertRaises(Exception)
+
+    def test_init_str(self):
+        a = "STRING"
+        b = 3
+
+        r1 = Rational(a, b)
+
+        self.assertRaises(Exception)
+
+    def test_init_list(self):
+        a = [2,1,4]
+        b = 3
+
+        r1 = Rational(a, b)
+
+        self.assertRaises(Exception)
+
     def test_add_common_denominator(self):
         a = 3
         b = 5
@@ -79,7 +119,7 @@ class TestRational(TestCase):
 
         self.assertRaises(Exception)
 
-    def sub_common_denominator(self):
+    def test_sub_common_denominator(self):
         a = 3
         b = 5
         c = 1
@@ -90,7 +130,7 @@ class TestRational(TestCase):
         sum = r1 - r2
         self.assertEqual(sum, Rational(2,5))
 
-    def sub_different_denominators(self):
+    def test_sub_different_denominators(self):
         a = 3
         b = 5
         c = 1
@@ -103,7 +143,7 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(2,5))
 
-    def sub_one_negative(self):
+    def test_sub_one_negative(self):
         a = -3
         b = 5
         c = 1
@@ -116,7 +156,7 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(-17,20))
 
-    def sub_both_negative(self):
+    def test_sub_both_negative(self):
         a = -3
         b = 5
         c = -3
@@ -129,7 +169,7 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(3,20))
 
-    def sub_improper_fraction(self):
+    def test_sub_improper_fraction(self):
         a = 14
         b = 5
         c = 3
@@ -142,7 +182,7 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(41,20))
 
-    def sub_not_Rationals(self):
+    def test_sub_not_Rationals(self):
         a = 14
         b = 5
 
