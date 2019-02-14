@@ -24,7 +24,7 @@ class Rational:
         # Implement multiplication.
         return Rational()
 
-    def __div__ ( self, other ):
+    def __truediv__(self, other):
         # Implement division.
         return Rational()
 
