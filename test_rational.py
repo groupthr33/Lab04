@@ -1,13 +1,13 @@
 from unittest import TestCase
 from Rational import Rational
 
+
 class TestRational(TestCase):
 
-    def add_common_denominator(self):
+    def test_add_common_denominator(self):
         a = 3
         b = 5
         c = 1
-
 
         r1 = Rational(a, b)
         r2 = Rational(c, b)
@@ -16,13 +16,11 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(4,5))
 
-    def add_different_denominators(self):
-
+    def test_add_different_denominators(self):
         a = 3
         b = 5
         c = 1
         d = 4
-
 
         r1 = Rational(a, b)
         r2 = Rational(c, d)
@@ -31,8 +29,7 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(17,20))
 
-    def add_one_negative(self):
-
+    def test_add_one_negative(self):
         a = -3
         b = 5
         c = 3
@@ -45,9 +42,7 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(3,20))
 
-
-    def add_both_negative(self):
-
+    def test_add_both_negative(self):
         a = -3
         b = 5
         c = -3
@@ -60,7 +55,7 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(-27,20))
 
-    def add_improper_fraction(self):
+    def test_add_improper_fraction(self):
         a = 14
         b = 5
         c = 3
@@ -73,7 +68,7 @@ class TestRational(TestCase):
 
         self.assertEqual(sum, Rational(71,20))
 
-    def add_not_Rationals(self):
+    def test_add_not_Rationals(self):
         a = 14
         b = 5
 
@@ -96,7 +91,6 @@ class TestRational(TestCase):
         self.assertEqual(sum, Rational(2,5))
 
     def sub_different_denominators(self):
-
         a = 3
         b = 5
         c = 1
@@ -110,7 +104,6 @@ class TestRational(TestCase):
         self.assertEqual(sum, Rational(2,5))
 
     def sub_one_negative(self):
-
         a = -3
         b = 5
         c = 1
@@ -124,7 +117,6 @@ class TestRational(TestCase):
         self.assertEqual(sum, Rational(-17,20))
 
     def sub_both_negative(self):
-
         a = -3
         b = 5
         c = -3
@@ -160,3 +152,53 @@ class TestRational(TestCase):
         sum = r1 - r2
 
         self.assertRaises(Exception)
+
+    def test_str(self):
+        a = 5
+        b = 7
+
+        r1 = Rational(a, b)
+
+        rationalAsString = str(r1)
+
+        self.assertEqual(rationalAsString, "5/7")
+
+    def test_str_negative(self):
+        a = -5
+        b = 7
+
+        r1 = Rational(a, b)
+
+        rationalAsString = str(r1)
+
+        self.assertEqual(rationalAsString, "-5/7")
+
+    def test_float_less_than_one(self):
+        a = 1
+        b = 2
+
+        r1 = Rational(a, b)
+
+        rationalAsFloat = float(r1)
+
+        self.assertEqual(rationalAsFloat, 0.5)
+
+    def test_float_greater_than_one(self):
+        a = 3
+        b = 2
+
+        r1 = Rational(a, b)
+
+        rationalAsFloat = float(r1)
+
+        self.assertEqual(rationalAsFloat, 1.5)
+
+    def test_float_(self):
+        a = 3
+        b = 2
+
+        r1 = Rational(a, b)
+
+        rationalAsFloat = float(r1)
+
+        self.assertEqual(rationalAsFloat, 1.5)
