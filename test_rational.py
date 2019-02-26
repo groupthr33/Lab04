@@ -1,3 +1,4 @@
+import unittest
 from unittest import TestCase
 from Rational import Rational
 
@@ -58,9 +59,8 @@ class TestRational(TestCase):
         expected_num = 4
         expected_den = 5
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_add_different_denominators(self):
         num_1 = 3
@@ -76,9 +76,8 @@ class TestRational(TestCase):
         expected_num = 26
         expected_den = 35
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_add_one_negative(self):
         num_1 = -3
@@ -94,9 +93,8 @@ class TestRational(TestCase):
         expected_num = -2
         expected_den = 5
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_add_both_negative(self):
         num_1 = -3
@@ -112,9 +110,8 @@ class TestRational(TestCase):
         expected_num = -4
         expected_den = 5
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_add_improper_fraction(self):
         num_1 = 5
@@ -130,9 +127,8 @@ class TestRational(TestCase):
         expected_num = 28
         expected_den = 15
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_add_non_rational_type_operand(self):
         num = 3
@@ -159,9 +155,8 @@ class TestRational(TestCase):
         expected_num = 2
         expected_den = 5
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_sub_different_denominators(self):
         num_1 = 3
@@ -177,9 +172,8 @@ class TestRational(TestCase):
         expected_num = 11
         expected_den = 20
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_sub_second_operand_negative(self):
         num_1 = 3
@@ -195,9 +189,8 @@ class TestRational(TestCase):
         expected_num = 4
         expected_den = 5
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_sub_improper_fraction(self):
         num_1 = 7
@@ -213,9 +206,8 @@ class TestRational(TestCase):
         expected_num = 6
         expected_den = 5
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_sub_non_rational_type_operand(self):
         num = 3
@@ -239,12 +231,11 @@ class TestRational(TestCase):
 
         actual = rational_1 * rational_2
 
-        expected_num = 4
+        expected_num = 3
         expected_den = 35
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_multiply_one_negative(self):
         num_1 = -3
@@ -260,9 +251,8 @@ class TestRational(TestCase):
         expected_num = -3
         expected_den = 25
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_multiply_both_negative(self):
         num_1 = -3
@@ -278,9 +268,8 @@ class TestRational(TestCase):
         expected_num = 3
         expected_den = 25
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_mul_improper_fraction(self):
         num_1 = 7
@@ -296,9 +285,8 @@ class TestRational(TestCase):
         expected_num = 7
         expected_den = 25
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_mul_non_rational_type(self):
         num = 3
@@ -325,9 +313,8 @@ class TestRational(TestCase):
         expected_num = 27
         expected_den = 10
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_div_first_negative(self):
         num_1 = -3
@@ -343,9 +330,8 @@ class TestRational(TestCase):
         expected_num = -3
         expected_den = 1
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_div_second_negative(self):
         num_1 = 3
@@ -361,9 +347,8 @@ class TestRational(TestCase):
         expected_num = -1
         expected_den = 2
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_div_both_negative(self):
         num_1 = -3
@@ -379,9 +364,8 @@ class TestRational(TestCase):
         expected_num = -3
         expected_den = 2
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_div_improper_fraction(self):
         num_1 = 8
@@ -397,9 +381,8 @@ class TestRational(TestCase):
         expected_num = 56
         expected_den = 15
 
-        expected = Rational(expected_num, expected_den)
-
-        self.assertEqual(expected, actual)
+        self.assertEqual(expected_num, actual.n)
+        self.assertEqual(expected_den, actual.d)
 
     def test_div_non_rational_type(self):
         num = 3
@@ -461,3 +444,13 @@ class TestRational(TestCase):
         rational_as_float = float(rational)
 
         self.assertEqual(rational_as_float, -1.5)
+
+
+suite = unittest.TestSuite()
+suite.addTest(unittest.makeSuite(TestRational))
+runner = unittest.TextTestRunner()
+res = runner.run(suite)
+print(res)
+print("*"*20)
+for i in res.failures:
+    print(i[1])
